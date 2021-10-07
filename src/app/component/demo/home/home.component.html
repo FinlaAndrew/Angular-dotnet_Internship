@@ -1,0 +1,126 @@
+<div class="form-body .form-input form-group">
+  <form [formGroup]="register" class="form-group body">
+    <div class="row" class="form-body signup-form" style="align-items: center;">
+      <div class="col-md-3">
+        <div class="row form-group " style="float: left;">
+          <label for="name">Name </label>
+            <input style="height: 20px;" type="text" id="name"  placeholder = "name" class="horizontal-group .left" formControlName="name">
+          </div>
+          </div>
+          <!-- <div class="col-md-3">
+            <div class="form-group" style="width: 20%; height: 30%; text-align: center;">
+              <label for="dob">DOB </label>
+              <input type="date" formControlName="dob" id="dob"
+              class="form-control form-control-sm" [value]="dob.value | date:'yyyy-MM-dd'">
+              </div>
+              </div> -->
+
+             <div class="row" style="display: inline;">
+              <div class="col-md-3">
+                <div class="form-group"  style="float: left;">
+                  <label for="mobile">Mobile </label>
+                            <input type="text" placeholder = "mobile" id="mobile" class="form-control form-control-sm" formControlName="mobile">
+                  </div>
+                  </div>
+                  <div class="col-md-3">
+                  <fieldset style="height: 50%; width: 70%; float:inline-start;">
+                    <legend style="color: brown;">Gender</legend>
+                    <div class="row">
+                      <input type="radio" id="male" class="custom-control-input"
+                      formControlName="gender" [value]="'male'">
+                    <label class="custom-control-label" for="male">Male</label>&nbsp;&nbsp;
+                    <input type="radio" id="female" formControlName="gender" [value]="'female'"
+                    class="custom-control-input">
+                  <label class="custom-control-label" for="female">Female</label>&nbsp;&nbsp;
+                  <input type="radio" id="transgender" formControlName="gender"
+                  [value]="'transgender'" class="custom-control-input" >
+                <label class="custom-control-label" for="transgender">Transgender</label>
+                     
+                      </div>
+      
+                      
+                   
+                    </fieldset></div>
+   
+                   
+                  <!-- <div class="col-25">
+                    <label for="country">Country</label>
+
+                    <select id="country" name="contry" formControlName = "contry">
+                      <option value="australia">Australia</option>
+                      <option value="canada">Canada</option>
+                      <option value="usa">USA</option>
+                      <option value="australia">India</option>
+                      <option value="canada">China</option>
+                      <option value="usa">Japan</option>
+                    </select>
+                </div>  -->
+             
+           
+            
+      </div> 
+      <!-- <div class="row">
+      <div class="col-md-3 mt-3">
+        <div class="checkbox-formgroup form-group"  style="width: 20%; height: 30%; text-align: center;">
+          <div class="custom-control custom-checkbox custom-control-inline">
+            <input type="checkbox" class="custom-control-input" id="indian"
+                  formControlName="indian"
+                 >
+                <label class="custom-control-label" for="indian">Is Indian</label>
+          
+          </div>
+        </div>
+        
+      </div>
+          </div> -->
+         
+          &nbsp;&nbsp;
+         <div class="row" >
+          <button type="button" style="width: 20%; height: 10%; margin-left: 20%;" (click)="newStudent()" >
+            <i class="ft-eye"> Submit</i>
+          </button>&nbsp;&nbsp;
+          <button type="button" style="width: 20%; height: 10%;" (click)="viewStudent()" >
+            <i class="ft-eye"> View</i>
+          </button></div>
+
+         &nbsp;&nbsp;
+          <div class="row">
+            <table class="  border-collapse" >
+            <div class="gj-table-scroll" style="width: 100%;">
+                <tr>
+                    
+                    <th style="text-align:center;width:20%;"> Name</th>
+                    <th style="text-align:center;width:20%;">Mobile</th>
+                    <!-- <th style="text-align:center;width:10%;">Contry</th> -->
+                   
+                    <th style="text-align:center;width:20%;">Gender</th>
+                    <th style="text-align:center;width:20%;"></th> 
+                    <th style="text-align:center;width:20%;"></th>
+                  </tr>
+                  <tr *ngFor="let data of list;let i = index;">
+                    <td style="text-align:center;">{{data.name}}</td>
+                    <td style="text-align:center;">{{data.mobile}}</td>
+                    <!-- <td style="text-align:center;">{{data.contry}}</td> -->
+                    <td style="text-align:center;">{{data.gender }}</td>
+                    <!-- <td style="text-align:left;">{{data.dob | date : 'dd/MMM/yyyy'}}</td>
+                    <td style="text-align:right;">{{data.isIndian}}</td>  -->
+                    <td><input type="button" id="edit_button3" value="Edit" class="edit"  (click)="editStudent(data)"></td>
+                    <td><input type="button" value="Delete" class="delete"  (click)="deleteStudent(data.id)"></td>
+
+
+                  </tr>
+            </div>
+            </table>
+        </div>
+        
+         </div>
+
+           
+          
+
+
+         
+     
+   
+  </form>
+</div>
