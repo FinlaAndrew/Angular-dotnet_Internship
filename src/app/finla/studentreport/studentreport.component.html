@@ -1,0 +1,168 @@
+<form class="gj-form" [formGroup]="dropDownForm">
+<div class="panel-heading">
+    <legend class="w-auto" style="font-weight:900;color:#000000;font-weight:700;padding-top: 15px;"></legend>
+    <h3 class="panel-title">Student Report</h3>
+</div>
+<div class="row">
+<div class="col-sm-3">
+    <label for="country" style="font-weight:750;padding-right:27px;">Country</label><code class="required">*</code>
+    
+    <select  id="country"  name="country" formControlName="country" (change)="resetcountry()" style="width: 171px;height:35px;">
+        <option [ngValue]="null" > --Select--</option>
+        <!-- <option  >India</option>
+        <option >Britain</option>
+        <option >USA</option>
+        <option >Russia</option>
+        <option >Argentina</option> -->
+        <option *ngFor="let country of countrylist; "[value]="country.id"> {{country.country}}</option>
+    </select>
+    <small style="color:red;" *ngIf="country.touched && country.invalid" class="alert ">
+        <div *ngIf="country.errors && country.errors.required">Country is required.</div>
+
+    </small>
+</div>
+<div class="col-sm-3">
+    <label for="gender" style="font-weight:750;padding-right:27px;">Gender</label><code class="required">*</code>
+    
+    <select  id="gender"  name="gender" formControlName="gender" (change)="resetcountry()" style="width: 171px;height:35px;">
+        <option [ngValue]="null" > --Select--</option>
+        <option >Male</option>
+        <option >Female</option>
+        <option >Transgender</option>
+    </select>
+    <small style="color:red;" *ngIf="gender.touched && gender.invalid" class="alert ">
+        <div *ngIf="gender.errors && gender.errors.required">Gender is required.</div>
+
+    </small>
+</div>
+<div class="col-sm-3">
+<div class="row">
+    <div class="col-md-5">
+        <label for="Age"  style="font-weight:750;padding-right:27px;margin-top: 10px;">Age</label>
+        <!-- <input type="number" value="tage" name="age" formControlName="age" (change)="resetcountry()"style="width:198px;height:33px;margin-top: -45px;padding-top: 23px;margin-left: 1px" placeholder="Age" id="age">  -->
+    </div>
+    <div class="col-md-5">
+        <input type="number" value="tage" name="age" formControlName="age" (change)="resetcountry()" style="width: 171px;height:35px;margin-left: -45px;margin-top: 1px;"placeholder="Age" id="age"> 
+    </div>
+    <div class="col-md-5">
+        <!-- <fieldset  style="height: 99%;"  style="font-weight:750;padding-right:27px;"> -->
+        
+            <div class=" " style="margin-left: 58px;margin-top: -47px;">
+                <label class=" custom-control-inline" style="margin-top: 4px;">
+                <input type="radio" name="radage" id="color-radio-2" formControlName="radage" (change)="resetcountry()"
+                [value]="'0'">
+                >
+               </label>&nbsp;
+           
+           
+                <label class=" custom-control-inline">
+                <input type="radio" name="radage" id="color-radio-2" formControlName="radage" (change)="resetcountry()"
+                [value]="'1'">
+                <
+                </label>&nbsp;
+          
+
+                <label class=" custom-control-inline">
+                <input type="radio" name="radage" id="color-radio-2" formControlName="radage" (change)="resetcountry()"
+                [value]="'2'">
+                =
+                </label>&nbsp;
+           </div>
+        <!-- </fieldset> -->
+     </div>
+
+</div>
+</div>     
+<!-- style="width:198px;height:33px;margin-top: -45px;padding-top: 23px;margin-left: 1px"                  -->
+                    <!-- <ul class="list-unstyled mb-0   px-3" style="padding-left: 20px;">
+                        <li class="d-inline-block mr-1">
+                            <div class="radio radio-sm gj-radio-primary">
+                                <input type="radio" name="radage" id="color-radio-2" formControlName="radage" (change)="resetcountry()"
+                                    [value]="'0'">
+                                <label for="color-radio-2">GT</label>
+                            </div>
+                        </li>
+                        <li class="d-inline-block mr-1">
+                            <div class="radio radio-sm gj-radio-primary">
+                                <input type="radio" name="radage" id="color-radio-3" formControlName="radage" (change)="resetcountry()"
+                                    [value]="'1'" >
+                                <label for="color-radio-3">LT</label>
+                            </div>
+                        </li>
+                        <li class="d-inline-block mr-1">
+                            <div class="radio radio-sm gj-radio-primary">
+                                <input type="radio" name="radage" id="color-radio-3" formControlName="radage" (change)="resetcountry()"(change)="resetcountry()"
+                                    [value]="'2'" >
+                                <label for="color-radio-3">EQ</label>
+                            </div>
+                        </li>
+                    </ul> -->
+                
+           
+        
+<div class="form-group">
+    <div class="row">
+        <div class="col-sm-4">
+            <button type="submit"      
+                style="margin-bottom: 68px; margin-left:1168px;" (click)="onView()"  
+                class="btn btn-sm btn-raised btn-raised btn-success">
+            <i class="ft-thumbs-up position-right"  ></i>View
+          </button>&nbsp;
+
+          <button type="button"  
+            style="margin-bottom: 68px; margin-left:1227px; margin-top: -141px; " (click)="onReset()"
+            class="btn btn-sm btn-raised btn-raised btn-warning ml-1">
+          <i class="ft-refresh-cw position-right"></i> Reset
+          </button>
+        </div>
+    </div>
+</div>
+<style>
+    table{
+        font-family: avial,sans-serif;
+        border-collapse: collapse;
+        width:100%;
+    }
+    td,th{
+        border:0.5px solid#dddddd;
+        text-align:left;
+        padding:3px;
+    }
+    tr:nth-child(even){
+        background-color:#dddddd;
+    }
+</style>
+<div class="gj-table mt-1" *ngIf="showreportList==true">
+<!-- <div *ngif="showreportList"> -->
+<table style="margin-left: 20px;">
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Dob</th>
+        <!-- <th>Age</th> -->
+        <th>Gender</th>
+        <th>MobNo</th>
+        <th>Place</th>
+        <th>Country</th>
+        <th>Is Indian</th>
+    </tr>
+    <tbody>
+        <tr  *ngFor="let report of studentlist;let i=index" >
+            <td>{{report.firstname}}</td>
+            <td>{{report.lastname}}</td>
+            <td>{{report.email}}</td>
+            <td>{{report.dob | date:'dd/MMM/yyyy'
+            }}</td>
+            <!-- <td>{{report.age}}</td> -->
+            <td>{{report.gender}}</td>
+            <td>{{report.mobno}}</td>
+            <td>{{report.place}}</td>
+            <td>{{report.country}}</td>
+            <td>{{report.indian}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+</form>

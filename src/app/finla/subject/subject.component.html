@@ -1,0 +1,116 @@
+
+<mat-dialog-content >
+    <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form class="gj-form" [formGroup]="subjectForm">
+        <div class="col-sm-3">
+            <label for="subject" style="font-weight:750;padding-right:27px;">Subject</label><code class="required">*</code>
+            
+            <select  id="subject"  name="subject" formControlName="subject" style="width: 171px;height:35px;">
+                <option [ngValue]="null" > --Select--</option>
+                <!-- <option >Physics</option>
+                <option >Chemistry</option>
+                <option >Mathematics</option> -->
+                <option *ngFor="let subject of subjectlist; "[value]="subject.subjectId"> {{subject.subjectname}}</option>
+            </select>
+            <small style="color:red;" *ngIf="subject.touched && subject.invalid" class="alert ">
+                <div *ngIf="subject.errors && subject.errors.required">Subject is required.</div>
+        
+            </small>
+            <div class="col-sm-3">
+                <button type="submit"      
+                    style="margin-bottom: 1px; margin-left:265px;margin-top: -50px;" (click)="viewStudents()"  
+                    class="btn btn-sm btn-raised btn-raised btn-success">
+                <i class="ft-thumbs-up position-right"  ></i>View
+              </button>&nbsp;
+            </div>
+        </div>
+    </form>
+        <style>
+                table{
+                    font-family: avial,sans-serif;
+                    border-collapse: collapse;
+                    width:100%;
+                }
+                td,th{
+                    border:0.5px solid#dddddd;
+                    text-align:left;
+                    padding:3px;
+                }
+                tr:nth-child(even){
+                    background-color:#dddddd;
+                }
+            </style>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>teMark</th>
+                    <th>ceMark</th>
+                    <th>Total</th>
+                    <th>Percentage</th>
+                </tr>
+                <tbody>
+                    <tr  *ngFor="let student of studentlist;let i=index" >
+                        <td>{{student.studentname}}</td>
+                        
+                        <td class="py-1" style="text-align:left;">
+                            <input class="mt-1 mb-1" appNumeric numericType="twodecimal" type="text"
+                                    id="teMark" class="form-control form-control-sm"
+                                    oninput="this.value=this.value.replace(/^\s+/g,'');"
+                                    autocomplete="off"
+                                    style="text-align:center;width:65px;height:26px;"
+                                    [(ngModel)]="student['marks']" (input)="CalculateMark(student)" >
+                        </td>
+                        
+                        <!-- <td class="py-1" style="text-align:left;">
+                            <input class="mt-1 mb-1" appNumeric numericType="twodecimal" type="text"
+                                    id="peMark" class="form-control form-control-sm"
+                                    oninput="this.value=this.value.replace(/^\s+/g,'');"
+                                    autocomplete="off"
+                                    style="text-align:center;width:65px;height:26px;"
+                                    [(ngModel)]="student['secMark']" (input)="CalculateMark(student)">
+                        </td> -->
+                        
+                        <td class="py-1" style="text-align:left;">
+                            <input class="mt-1 mb-1" appNumeric numericType="twodecimal" type="text"
+                                    id="ceMark" class="form-control form-control-sm"
+                                    oninput="this.value=this.value.replace(/^\s+/g,'');"
+                                    autocomplete="off"
+                                    style="text-align:center;width:65px;height:26px;"
+                                    [(ngModel)]="student['thirdMark']" (input)="CalculateMark(student)">
+                        </td>
+                        <td *ngIf="student['totalMark']!=0" >{{student['totalMark']}}</td>
+                        <td *ngIf="student['totalMark']==0" ></td>
+                        <td *ngIf="student['percentage']!=0" >{{student['percentage']}}</td>
+                        <td *ngIf="student['percentage']==0" ></td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <div class="row">
+                <div class="col-sm-4">
+                    <button type="submit"  (click)="onSaveSubject()"     
+                      style="margin-bottom: -40px;margin-left: 1154px;"
+                       
+                    class="btn btn-sm btn-raised btn-raised btn-success">
+                    <i class="ft-thumbs-up position-right"  ></i>Save
+                    </button>&nbsp;
+
+                    <button type="button"  (click)="onDelete()"
+                    style="margin-bottom: -40px;margin-left: 1215px;margin-top: -80px;"
+
+                    class="btn btn-sm btn-raised btn-raised btn-success">
+                    <i class="ft-refresh-cw position-right"></i> Delete
+                    </button>&nbsp;
+
+                    
+                </div>
+            </div>
+        
+    </body>
+</html>
+</mat-dialog-content>

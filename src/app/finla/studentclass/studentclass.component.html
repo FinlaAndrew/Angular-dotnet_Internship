@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Contact</title>
+    </head>
+    <body>
+        <!-- <div class="container-fluid">
+            <div style="text-align:right;">
+                <a (click)=" onGotoHomeclick()" role="button">Go to Homepage</a>
+            </div>
+        </div> -->
+        <form [formGroup]="contactFormGroup">
+            <div class="container-fluid justify-content " >
+    <!-- <form> -->
+        
+<fieldset>
+    <div class="panel-heading">
+        <legend class="w-auto" style="font-weight:900;color:#000000;font-weight:700;padding-top: 15px;"></legend>
+        <h3 class="panel-title">Student Contact Form</h3>
+    </div>
+    <div class="row" style=padding-top:20px;>
+        <div class="col-sm-3">
+            <label for="firstname" style="font-weight:750;padding-right:10px;">Firstname</label><code class="required">*</code>
+            <input type="text" style="width:197px;height:33px" name="firstname" formControlName="firstname" [disabled]="contactFormGroup.invalid" pattern="[a-zA-Z]{1,}" placeholder="Enter your firstname" required/>
+            <small style="color:red;" *ngIf="firstname.touched && firstname.invalid" class="alert ">
+                <div *ngIf="firstname.errors && firstname.errors.required">Firstname is required.</div>
+
+            </small>
+        </div>
+        <div class="col-sm-3">
+                    <label for="lastname" style="font-weight:750;padding-right:10px;">Lastname</label><code class="required">*</code>
+                    <input type="text" style="width:197px;height:33px" name="lastname" formControlName="lastname" [disabled]="contactFormGroup.invalid" pattern="[a-zA-Z]{1,}" placeholder="Enter your lastname" required/>
+                    <small style="color:red;" *ngIf="lastname.touched && lastname.invalid" class="alert ">
+                        <div *ngIf="lastname.errors && lastname.errors.required">Lastname is required.</div>
+        
+                    </small>
+                </div>
+    </div>
+    <div class="row" style=padding-top:20px;>
+        
+        <div class="col-sm-3">
+            <div class="input-field col m2">
+                <label for="dob" style="font-weight:750;padding-right:61px;">DOB</label>
+                <input type="date" style="width:196px;height:33px" id="txtdate" formControlName="dob"  (change)="CalculateAge()">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <label for="age" style="font-weight:750;padding-right:65px;">{{dateob}} Years</label>
+            <!-- <input type="number"formControlName="age" style="width:198px;height:33px" id="age" formControlName="age"  placeholder="Age" required/> -->
+        </div>
+    </div>
+    <div class="row" style=padding-top:20px;>
+        <div class="col-sm-3">
+            <label for="email" style="font-weight:750;;padding-right:53px;">Email</label>
+            <input type="email" style="width:198px;height:33px" id="email" formControlName="email"   placeholder="Enter your email" />
+            <!-- <small style="color:red;" *ngIf="email.touched && email.invalid" class="form-text text-muted dange px-3">Email is required.
+                  <div *ngIf="email.errors && email.errors.required">Email is required.</div> -->
+            <!-- </small> -->
+            <!-- <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                <span ng-show="myForm.email.$error.required">Email is required.</span>
+                <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+            </span> -->
+            <!-- required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" -->
+        </div>
+        
+        <div class="col-sm-3">
+            <label for="mobno" style="font-weight:750;padding-right:27px;">MobNo</label><code class="required">*</code>
+            <input type="text" style="width:198px;height:33px" id="mobno" formControlName="mobno" [disabled]="contactFormGroup.invalid" maxlength="10" placeholder="Enter Mob.No" required/>
+            <small style="color:red;" *ngIf="mobno.touched && mobno.invalid" class="alert ">
+                <div *ngIf="mobno.errors && mobno.errors.required">Mobilenumber is required.</div>
+
+            </small>
+        </div>
+    </div>
+    <div class="row" style=padding-top:20px;>
+        <div class="col-sm-3">
+            <label for="place" style="font-weight:750;padding-right:52px;">Place</label>
+            <input type="text" style="width:198px;height:33px" id="place" formControlName="place" [disabled]="contactFormGroup.invalid" placeholder="place" required/>
+        </div> 
+        <div class="col-sm-3">
+            <label for="country" style="font-weight:750;padding-right:27px;">Country</label>
+            
+            <select  id="country" required name="country" formControlName="country" [disabled]="contactFormGroup.invalid" style="width: 171px;height:35px;">
+                <option [ngValue]="null" > --Select--</option>
+                <!-- <option  >India</option>
+                <option >Britain</option>
+                <option >USA</option>
+                <option >Russia</option>
+                <option >Argentina</option> -->
+                <option *ngFor="let country of countrylist; "[value]="country.id"> {{country.name}}</option>
+            </select>
+        
+          
+                <button type="button" (click)=" openCountryComponent()"       style="margin-top: -5.5px;margin-left: 3.6px; height: 34px;"
+                    class="btn btn-sm btn-raised btn-raised btn-warning ">
+                   
+                    <span class="material-icons">
+                        settings
+                    </span> 
+                </button>
+        </div>
+                  
+</div> 
+        <div class="row" >
+        <label for="gender"></label>
+                       <fieldset  class="border  "  style="border-radius: 5px;" >
+                        <div class="col-lg-5">
+                            <legend class="w-auto" style="font-size: 13px;color:#000000;font-weight:700;padding-top: 15px;">Gender </legend>
+                           
+                        <div class=" " style="margin-left: 20px;">
+                             <label class=" custom-control-inline ">
+                                <input   type="radio" value="Male" name="gender"  formControlName="gender" [disabled]="contactFormGroup.invalid">
+                                Male
+                            </label>&nbsp;
+                        
+                        
+                            <label class=" custom-control-inline">
+                                <input type="radio" value="Female" name="gender"  formControlName="gender" [disabled]="contactFormGroup.invalid">
+                                Female
+                            </label>&nbsp;
+                       
+
+                            <label class=" custom-control-inline">
+                                <input type="radio" value="Transgender" name="gender"  formControlName="gender" [disabled]="contactFormGroup.invalid">
+                                Transgender
+                            </label>
+                        </div>
+                    </div>
+
+                         </fieldset>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <label for="IsIndianCitizen"></label>
+
+                <fieldset  class=" border py-0" style="border-radius: 5px;">
+                    <legend class="w-auto" style="font-size: 13px;color:#000000;margin-left: 10px;font-weight:700;padding-top: 15px;">Is IndianCitizen</legend>
+                   
+                <div class=""  style="margin-left: 20px;">
+                    <label style="font-weight:750;" class=" checkbox-inline">
+                        <input id="checkbox"  checked  type="checkbox" name="indian" formControlName="indian" [disabled]="contactFormGroup.invalid">
+                        Is Indian 
+                    </label>
+                </div>
+            </fieldset>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-4">
+                <button type="submit"  (click)="onSave()"     
+                  style="margin-bottom: 0px;"
+                   
+                class="btn btn-sm btn-raised btn-raised btn-success">
+                <i class="ft-thumbs-up position-right"  ></i>{{newReg?'Save':'Update'}}
+              </button>&nbsp;
+              <!-- [disabled]="!contactFormGroup.valid" -->
+
+              
+              
+              <button type="button" (click)="onReset()"  style="margin-bottom: 0px;"
+                class="btn btn-sm btn-raised btn-raised btn-warning ml-1">
+                <i class="ft-refresh-cw position-right"></i> Reset
+              </button>
+
+
+            </div>
+
+        </div>
+        <!-- <div>
+            <input type="submit" value="Submit" id="submit" [disabled]="contactFormGroup.invalid" (click)="onSave();">
+            <button type="button" (click)="onReset();">Reset</button>
+        </div> -->
+        <style>
+            table{
+                font-family: avial,sans-serif;
+                border-collapse: collapse;
+                width:100%;
+            }
+            td,th{
+                border:0.5px solid#dddddd;
+                text-align:left;
+                padding:3px;
+            }
+            tr:nth-child(even){
+                background-color:#dddddd;
+            }
+        </style>
+        <table>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Dob</th>
+                <!-- <th>Age</th> -->
+                <th>Gender</th>
+                <th>MobNo</th>
+                <th>Place</th>
+                <th>Country</th>
+                <th>Is Indian</th>
+            </tr>
+            <tbody>
+                <tr  *ngFor="let contact of studentlist;let i=index" >
+                    <td>{{contact.firstname}}</td>
+                    <td>{{contact.lastname}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.dob | date:'dd/MMM/yyyy'
+                    }}</td>
+                    <!-- <td>{{contact.age}}</td> -->
+                    <td>{{contact.gender}}</td>
+                    <td>{{contact.mobno}}</td>
+                    <td>{{contact.place}}</td>
+                    <td>{{contact.country}}</td>
+                    <td>{{contact.indian}}</td>
+                    <td>
+                        <button type="button" (click)="  editStudent(contact.studentId)"  class="btn btn-sm btn-info">Edit <i class="ft-edit position-right"></i></button>&nbsp;
+                        <button type="button" (click)="  deleteStudent(contact.studentId)" class="btn btn-sm btn-danger">Delete<i class="ft-trash-2 position-right"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+             
+        
+    
+</fieldset>
+<!-- </form> -->
+</div>
+</form>
+</body>
+</html>

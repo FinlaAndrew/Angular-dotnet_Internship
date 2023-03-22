@@ -1,0 +1,58 @@
+form.gj-form {
+    font-weight: 500;
+    line-height: 15px;
+
+    label {
+        margin-bottom: 0;
+    }
+
+    .form-control {
+        border-color: #ada8a8;
+        color: #222020;
+    }
+    .form-control-xs {
+        height: calc(1.5em + 0.5rem + 2px);
+        padding: 0.2rem 0.4rem;
+        font-size: 0.753rem;
+        line-height: .8;
+        border-radius: 0.25rem;
+    }
+
+    .text-muted {
+        color: #222020 !important;
+    }
+
+    input[type=text] {
+        border-color: #ada8a8;
+        color: #222020;
+    }
+
+    .ng-select .ng-select-container {
+        min-height: 0px !important;
+        border: 1px solid #8c9bb1 !important;
+    }
+
+    .ng-dropdown-panel {
+        border: 1px solid #ada8a8;
+    }
+
+    .ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-placeholder {
+        top: 5px;
+    }
+
+    .ng-select.ng-select-single .ng-select-container {
+        height: 30px !important;
+    }
+
+    .ng-select .ng-select-container .ng-value-container .ng-placeholder {
+        color: #626060;
+    }
+
+    .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-child {
+        padding-left: 30px;
+    }
+
+    .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+        padding: 5px 5px 8px 8px;
+    }
+}

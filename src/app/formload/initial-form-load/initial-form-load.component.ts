@@ -19,4 +19,12 @@ export class InitialFormLoadComponent implements OnInit {
   onsandraclick() {
     this.router.navigate(['/studentdemo']);
   }
+
+  onJayarajclick() {
+    this.router.navigate(['/header']);
+  }
+
+  onfinlaclick() {
+    this.router.navigate(['/home']);
+  }
 }

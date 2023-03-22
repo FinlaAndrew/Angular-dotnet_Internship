@@ -1,0 +1,67 @@
+<form class="gj-form" [formGroup]="markEntryForm">
+    <div class="panel-heading">
+        <legend class="w-auto" style="font-weight:900;color:#000000;font-weight:700;padding-top: 15px;"></legend>
+        <h3 class="panel-title">MarkEntry Report</h3>
+    </div>
+    <div class="row col-md-12">
+    <div class="col-md-4">
+        <label for="student" style="font-weight:750;padding-right:27px;">Student</label><code class="required">*</code>
+        
+        <select  id="student"  name="student" formControlName="student" (change)="resetstudent()" style="width: 171px;height:35px;">
+            <option [ngValue]="null" > --Select--</option>
+            <option *ngFor="let student of studentlist; "[value]="student.studentId"> {{student.studentname}}</option>
+        </select>
+        <small style="color:red;" *ngIf="student.touched && student.invalid" class="alert ">
+            <div *ngIf="student.errors && student.errors.required">Student is required.</div>
+    
+        </small>
+    </div>
+            <div class="col-md-4">
+                <button type="submit"      
+                    (click)="onViewstu()"  
+                    class="btn btn-sm btn-raised btn-raised btn-success">
+                <i class="ft-thumbs-up position-right"></i>View
+              </button>&nbsp;
+    
+              <button type="button"  
+                (click)="onResetstu()"
+                class="btn btn-sm btn-raised btn-raised btn-warning ml-1">
+              <i class="ft-refresh-cw position-right"></i> Reset
+              </button>
+            </div>
+        </div>
+    <!-- </div> -->
+    <style>
+        table{
+            font-family: avial,sans-serif;
+            border-collapse: collapse;
+            width:100%;
+        }
+        td,th{
+            border:0.5px solid#dddddd;
+            text-align:left;
+            padding:3px;
+        }
+        tr:nth-child(even){
+            background-color:#dddddd;
+        }
+    </style>
+    <div class="gj-table mt-1" *ngIf="showmarkreportList==true">
+        <table style="margin-left: 20px;">
+            <tr>
+                <th>Physics</th>
+                <th>Chemistry</th>
+                <th>MatheMatics</th>
+                <th>Percentage</th>
+            </tr>
+            <tbody>
+                <tr >
+                    <td>{{Physics}}</td>
+                    <td>{{Chemistry}}</td>
+                    <td>{{Mathematics}}</td>
+                    <td>{{percentage}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form>

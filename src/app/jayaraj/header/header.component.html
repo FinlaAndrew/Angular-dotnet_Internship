@@ -1,57 +1,106 @@
-<div class="content">
-    <!-- Resources -->
-    <h2>Individual Tasks</h2>
+
+<nav class="navbar navbar-default " style="background-color: dodgerblue;">
+    <div class="container-fluid">
+
+       
+        
+        <div class="navbar-header "   >
+           
+            <a (click)="  onGotoHomeclick()" role="button" style="font-family: Arial, Helvetica, sans-serif;color:whitesmoke;font-size: 22px;"  class="navbar-brand   ">Jayaraj C J &nbsp;&nbsp; <span style="height:65px;border:1px solid"></span> </a>
+           
+        </div>
 
 
-    <div class="card-container">
-        <button class="card" target="_blank" rel="noopener" (click)="onsandraclick()" >
-            <span>Sandra Sivan</span>
+        <div class="collapse navbar-collapse">
+
+           
+            <ul class="nav navbar-nav  ">
+                <li class="dropdown" appDropdown>
+                   
+                    <a style="color: whitesmoke;"  (click)="  onGotoHomeclick()" class="dropdown-toggle " role="button"> Home</a>
+                   
+
+
+
+                </li>
+
+                <li >
+                    <a style="color: whitesmoke;"   role="button"> About</a>
+                  
+
+
+
+                </li>
+
+
+
+            </ul>
+
+        </div>
+
+
+
+    </div>
+
+</nav>
+
+
+
+
+<div class="container-fluid ">
+
+    <div class="panel panel-default">
+    
+        <div class="panel-body">
+
+   
+    <h2 style="text-decoration: underline;">My Tasks</h2>
+    
+   
+
+    <div class="card-container col-md-10" >
+        <button class="card" style="color: cadetblue;" target="_blank" rel="noopener" (click)="onJayarajclick()">
+            <span>Student Form</span>
+           
             <svg class="material-icons" width="24" height="24" viewBox="0 0 24 24">
                 <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+               
             </svg>
+          
         </button>
-
-        <button class="card" target="_blank" rel="noopener">
-            <span>Sandra Unni</span>
+        
+        <button class="card" style="color: cadetblue;" target="_blank" rel="noopener">
+            <span>Task 2</span>
             <svg class="material-icons" width="24" height="24" viewBox="0 0 24 24">
                 <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
             </svg> </button>
 
-        <button class="card" target="_blank" rel="noopener">
-            <span>Grandshow</span>
+        <button class="card" style="color: cadetblue;"  target="_blank" rel="noopener">
+            <span>Task 3</span>
             <svg class="material-icons" width="24" height="24" viewBox="0 0 24 24">
                 <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
             </svg>
         </button>
 
-        <button class="card" target="_blank" rel="noopener">
-            <span>Miranda</span>
+        <button class="card" style="color: cadetblue;" target="_blank" rel="noopener">
+            <span>Task 4</span>
             <svg class="material-icons" width="24" height="24" viewBox="0 0 24 24">
                 <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
             </svg>
         </button>
 
+        
 
-        <button class="card" target="_blank" rel="noopener" (click)="onJayarajclick()">
-            <span>Jayaraj</span>
-            <svg class="material-icons" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-            </svg>
-        </button>
-
-        <button class="card" target="_blank" rel="noopener" (click)="onfinlaclick()" >
-            <span>Finla</span>
-            <svg class="material-icons" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-            </svg>
-        </button>
-
+      
+       
 
 
     </div>
 
 </div>
 
+</div>
+</div>
 
 
 <style>
@@ -93,6 +142,8 @@
         color: white;
         font-weight: 600;
     }
+
+  
 
     .toolbar img {
         margin: 0 16px;

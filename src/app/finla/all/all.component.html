@@ -1,0 +1,46 @@
+<style>
+    table{
+        font-family: avial,sans-serif;
+        border-collapse: collapse;
+        width:100%;
+    }
+    td,th{
+        border:0.5px solid#dddddd;
+        text-align:left;
+        padding:3px;
+    }
+    tr:nth-child(even){
+        background-color:#dddddd;
+    }
+</style>
+<div class="gj-table mt-1" >
+    <table style="margin-left: 20px;">
+        <tr>
+            <th>Name</th>
+            <th>Physics</th>
+            <th>Chemistry</th>
+            <th>MatheMatics</th>
+            <th>Percentage</th>
+        </tr>
+        <tbody>
+            <tr *ngFor="let mark of marklist;let i=index">
+                <td>{{mark.studentname}}</td>
+                <td>{{mark['marks'][0].mark}}</td>
+                <td>{{mark['marks'][1].mark}}</td>
+                <td>{{mark['marks'][2].mark}}</td>
+                <td>{{mark.percentage.toFixed(2)}}</td>
+                <!-- <td *ngFor="let marks of mark['marks'];let i=index">
+                    <table>
+                        <tr>
+                            <td>{{marks.mark}}</td>
+                            <td>{{marks.chemistry}}</td>
+                            <td>{{marks.mathematics}}</td>
+                            <td>{{marks.percentage}}</td>
+                        </tr>
+                    </table>
+               
+            </td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>

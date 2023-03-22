@@ -1,0 +1,281 @@
+<br>
+
+<div class="container-fluid">
+<div style="text-align:right;">
+    <a (click)=" onGotoHomeclick()" role="button">Go to Homepage</a>
+</div>
+</div>
+ 
+
+<div class="container-fluid justify-content " >
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Student Form</h3>
+    </div>
+
+    <div class="panel-body">
+        <form (ngSubmit)="onSave()" [formGroup]="feeTestFormGroup" autocomplete="off"    >
+            <div class="form-group">
+            
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="name">Name</label><code class="required">*</code>
+                        <input  autocomplete="off" oninput="this.value = this.value.replace(/^\s+/g, '');"   id="name"  formControlName="name" placeholder="Name" type="text" class="form-control"  >
+                        <small style="color:red;" *ngIf="name.touched && name.invalid" class="alert ">
+                            <div *ngIf="name.errors && name.errors.required">Name is required.</div>
+     
+                        </small>
+
+
+
+                    </div>
+            
+                    <div class="col-sm-4">
+            
+                        <label for="mobno">Mobile No.</label>
+                        <input   autocomplete="off" required id="mobno" name="mobno" formControlName="mobno" placeholder="Mobile Number" maxlength="10"    type="text" class="form-control" onkeydown = "return  (!((event.keyCode>=65 && event.keyCode <= 95) || event.keyCode >= 106 || (event.keyCode >= 48 && event.keyCode <= 57 && isNaN(event.key))) && event.keyCode!=32); "  >
+                        <small style="color:red;" *ngIf="mobno.touched && mobno.invalid" class="alert ">
+                            <div *ngIf="mobno.errors && mobno.errors.required">Mobile Number is required.</div>
+     
+                        </small>
+                    </div>
+            
+                </div>
+            
+            
+            
+            
+            </div>
+
+            <div class="form-group ">
+            
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="gender"></label>
+                       
+
+                        <fieldset  class="border  "  style="border-radius: 5px;" >
+                            <legend class="w-auto" style="font-size: 1.25rem;color:#ff8d60;margin-left: 10px;">Gender </legend>
+                           
+                        <div class=" " style="margin-left: 20px;">
+
+                           
+
+                               
+                           
+                            <label class=" custom-control-inline ">
+                                <input   type="radio" value="Male" name="gender"  formControlName="gender" checked>
+                                Male
+                            </label>&nbsp;
+                        
+                        
+                            <label class=" custom-control-inline">
+                                <input type="radio" value="Female" name="gender"  formControlName="gender">
+                                Female
+                            </label>&nbsp;
+                       
+
+                            <label class=" custom-control-inline">
+                                <input type="radio" value="Transgender" name="gender"  formControlName="gender" >
+                                Transgender
+                            </label>
+
+                      
+
+                       
+                       
+            
+            
+                        </div>
+
+                         </fieldset>
+            
+            
+            
+            
+                    </div>
+                    <div class="col-sm-3">
+                       
+                          <label for="dateofbirth">Date of Birth</label>
+                          <input id="dob" required  name="dob" type="date" formControlName="dob" class="form-control">
+                         
+                         
+                          <small style="color:red;" *ngIf="dob.touched && dob.invalid" class="alert ">
+                            <div *ngIf="dob.errors && dob.errors.required">Date of Birth is required.</div>
+     
+                        </small>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <label for="country">Country</label>
+                        <select  id="country" required name="country" formControlName="country"   class="form-control"    >
+                            <option value="" selected > --Select--</option>
+                            <option  >India</option>
+                            <option >Britain</option>
+                            <option >USA</option>
+                            <option >Russia</option>
+                            <option >Argentina</option>
+                           
+                           
+                        </select>
+                       
+                        <small style="color:red;" *ngIf="country.touched && country.invalid" class="alert ">
+                            <div *ngIf="country.errors && country.errors.required">Country is required.</div>
+     
+                        </small>
+                      
+                       
+
+
+
+
+                    </div>
+                    <div class="container-fluid">
+                    <button type="button" (click)=" openCountryComponent()"       style="margin-top: 25px;margin-left: -15px; height: 34px;"
+                        class="btn btn-sm btn-raised btn-raised btn-warning ">
+                       
+                        <span class="material-icons">
+                            settings
+                            </span> 
+                      </button>
+                      
+                    </div>
+                 
+                   
+                      
+            
+            
+                </div>
+
+            
+            
+            
+            </div>
+
+            
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="isIndianCitizen"></label>
+
+                        <fieldset  class=" border py-0" style="border-radius: 5px;">
+                            <legend class="w-auto" style="font-size: 1.25rem;color:#ff8d60;margin-left: 10px;">Set For </legend>
+                           
+                        <div class=""  style="margin-left: 20px;">
+
+
+                           
+                           
+                            <label class=" checkbox-inline">
+                                <input id="isIndianCitizen"  checked  type="checkbox" name="isIndianCitizen" formControlName="isIndianCitizen"             >
+                                Indian Citizen
+                            </label>
+                        
+                        
+
+                       
+            
+            
+                        </div>
+
+                    </fieldset>
+            
+            
+            
+                    </div>
+
+                 
+                  
+
+
+
+
+                </div>
+
+
+
+            </div>
+            
+            <br>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <button type="submit"  (click)="onSave()"     
+                        [disabled]="!feeTestFormGroup.valid"
+                          style="margin-bottom: 0px;"
+                           
+                        class="btn btn-sm btn-raised btn-raised btn-success">
+                        <i class="ft-thumbs-up position-right"  ></i>{{newReg?'Save':'Update'}}
+                      </button>&nbsp;
+
+                      
+                      
+                      <button type="button" (click)="onReset()"  style="margin-bottom: 0px;"
+                        class="btn btn-sm btn-raised btn-raised btn-warning ml-1">
+                        <i class="ft-refresh-cw position-right"></i> Reset
+                      </button>
+
+
+                    </div>
+
+                </div>
+            </div>
+            
+
+
+
+            </form>
+         
+    
+            <br>
+            <hr>
+
+            <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr >
+                       <th style="width: 5%; background-color: #c7b2d3;font-size:small;">Sl.No</th>
+                      <th style="width: 10%; background-color: #c7b2d3;font-size:small;">Name</th>
+                      <th style="text-align: center;width: 10%; background-color: #c7b2d3;font-size:small;">Mobile No.</th>
+                      <th style="text-align: center;width: 10%; background-color: #c7b2d3;font-size:small;">Gender</th>
+                      <th style="text-align: center;width: 10%; background-color: #c7b2d3;font-size:small;">DOB</th>
+                      <th style="text-align: center;width: 10%; background-color: #c7b2d3;font-size:small;">Country</th>
+                      <th style="text-align: center;width: 10%; background-color: #c7b2d3;font-size:small;">Indian Citizen</th>
+                     
+                      <th style="text-align: center;width: 10%; background-color: #c7b2d3;font-size:small;">Actions</th>
+                   
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr   *ngFor="let student of students;let i=index"  >
+                        <td style="width: 5%; ">{{i+1}}</td>
+                        <td style="width: 10%; ">{{student.name}}</td>
+                        <td style="text-align: center;width: 10%;">{{student.mobno}}</td>
+                        <td style="text-align: center;width: 10%;">{{student.gender}}</td>
+                        <td style="text-align: center;width: 10%;">{{student.dob | date:'dd-MMM-yyyy'}}</td>
+                        <td style="text-align: center;width: 10%;">{{student.country}}</td>
+                        <td style="text-align: center;width: 10%;">{{student.isIndianCitizen  }}</td>
+                        <td style="text-align: center;width: 10%;">
+                          <button type="button" (click)="  editstudent(i)"  class="btn btn-sm btn-info">Edit <i class="ft-edit position-right"></i></button>&nbsp;
+                          <button type="button" (click)="  deleteStudent(i)" class="btn btn-sm btn-danger">Delete<i class="ft-trash-2 position-right"></i></button>
+
+
+                      </td>
+                       
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+          
+    
+    </div>
+    </div>
+
+
+
+</div>
